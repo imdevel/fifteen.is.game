@@ -28,5 +28,6 @@ jobs:
         CLEAN: false
     - name: To dist
       run: |
+        git checkout gh-pages
         mkdir dist
         mv ./* ./dist/
