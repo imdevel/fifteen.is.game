@@ -18,7 +18,8 @@ jobs:
         npm install
         npm run build
         
-    - name: |
+    - name: Prepare to deploy
+      run: |
         mkdir -p deploy/dist
         cp example/* deploy/
         cp dist/* deploy/dist/
