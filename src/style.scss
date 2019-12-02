@@ -1,0 +1,41 @@
+.fifteen-is-game__field {
+  display: block;
+  width: 408px;
+  height: 408px;
+  margin: 0 auto;
+  border: 1px solid #009688;
+  border-radius: 1px;
+}
+.fifteen-is-game__field-inner {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  height: calc(100% - 8px);
+  margin: 4px;
+}
+.fifteen-is-game__field-cell {
+  display: flex;
+  width: 25%;
+  height: 25%;
+  border-radius: 1px;
+  font-family: monospace, sans-serif;
+  font-size: 40px;
+  color: #009688;
+  transition: all 1s;
+
+  &:hover {
+    color: #FFFFFF;
+    background-color: #B2DFDB;
+    cursor: pointer;
+  }
+
+  &_empty {
+    display: flex;
+    width: 25%;
+    height: 25%;
+    background-color: #B2DFDB;
+  }
+}
+.fifteen-is-game__field-cell-number {
+  margin: auto;
+}
