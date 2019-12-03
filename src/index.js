@@ -25,7 +25,6 @@ import './style.scss';
   Fifteen.prototype.onWinAction = function FifteenOnWinAction() {
     // eslint-disable-next-line no-alert
     alert('Congratulations! You are win the game!!');
-    this.startTheGame();
   };
 
   Fifteen.prototype.checkWinTheGame = function FifteenCheckWinTheGame() {
@@ -127,9 +126,9 @@ import './style.scss';
     gameFieldCell.dataset.number = number;
 
     if (this.isEmptyCell(number)) {
-      gameFieldCell.classList.add('fifteen-is-game__field-cell_empty');
+      gameFieldCell.classList.add('fifteen-is-game__field-cell', 'fifteen-is-game__field-cell_empty');
     } else {
-      gameFieldCell.classList.add('fifteen-is-game__field-cell');
+      gameFieldCell.classList.add('fifteen-is-game__field-cell', 'fifteen-is-game__field-cell_with-number');
       gameFieldCell.innerHTML = `<div class="fifteen-is-game__field-cell-number">${number}</div>`;
       gameFieldCell.onclick = (e) => {
         const element = e.currentTarget;
@@ -158,6 +157,9 @@ import './style.scss';
     const gameFieldInner = this.drawGameFieldInner();
     gameField.append(gameFieldInner);
 
+    while (this.gameField.firstChild) {
+      this.gameField.removeChild(this.gameField.firstChild);
+    }
     this.gameField.append(gameField);
   };
 
