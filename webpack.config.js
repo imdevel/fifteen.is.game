@@ -7,14 +7,32 @@ module.exports = {
     filename: 'fifteen.is.game.js',
   },
   module: {
-    rules: [{
-      test: /\.scss$/,
-      use: [
-        'style-loader',
-        'css-loader',
-        'sass-loader',
-      ],
-    }],
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-class-properties'],
+            },
+          },
+          {
+            loader: 'eslint-loader',
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
